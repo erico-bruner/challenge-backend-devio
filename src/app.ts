@@ -1,5 +1,8 @@
 import cors from 'cors';
 import express, { json } from 'express';
+import { loadEnv } from './config';
+
+loadEnv();
 
 const app = express();
 
