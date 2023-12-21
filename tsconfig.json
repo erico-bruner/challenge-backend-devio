@@ -18,5 +18,5 @@
       }
     ]
   },
-  "include": ["src", "tests", "commitlint.config.js"]
+  "include": ["src", "tests", "commitlint.config.js", "prisma/seed.ts"]
 }
