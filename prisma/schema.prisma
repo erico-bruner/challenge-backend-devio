@@ -12,25 +12,25 @@ datasource db {
 
 model Product {
   id          Int         @id @default(autoincrement())
-  name        String
+  name        String      @unique
   price       Int
   description String
   image_url   String
-  categoryId  Int
-  category    Category    @relation(fields: [categoryId], references: [id])
+  categoryId  Int?
+  category    Category?    @relation(fields: [categoryId], references: [id])
   orderItems  OrderItem[]
 }
 
 model Category {
   id        Int       @id @default(autoincrement())
-  name      String
+  name      String    @unique
   image_url String
   products  Product[]
 }
 
 model Addon {
   id         Int         @id @default(autoincrement())
-  name       String
+  name       String      @unique
   price      Int
   image_url  String
   orderItems OrderItem[]
