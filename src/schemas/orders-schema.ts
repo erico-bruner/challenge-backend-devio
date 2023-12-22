@@ -24,3 +24,7 @@ export const ordersSchema = Joi.object<CreateOrderParams>({
 export const finishOrderSchema = Joi.object<FinishOrderParams>({
   id: Joi.number().min(0).required(),
 });
+
+export const deleteOrderSchema = Joi.object<FinishOrderParams>({
+  id: Joi.number().min(0).required(),
+});

@@ -54,7 +54,16 @@ async function finishById(id: number) {
   return order;
 }
 
+async function deleteById(id: number) {
+  const orderExist = await ordersRepository.readById(id);
+  if (!orderExist) throw notFoundError('Order');
+
+  const order = await ordersRepository.deleteById(id);
+  return order;
+}
+
 export const ordersService = {
   create,
   finishById,
+  deleteById,
 };

@@ -35,6 +35,12 @@ async function finishById(id: number) {
   });
 }
 
+async function deleteById(id: number) {
+  return prisma.order.delete({
+    where: { id },
+  });
+}
+
 async function readById(id: number) {
   return prisma.order.findUnique({ where: { id } });
 }
@@ -43,4 +49,5 @@ export const ordersRepository = {
   create,
   finishById,
   readById,
+  deleteById,
 };

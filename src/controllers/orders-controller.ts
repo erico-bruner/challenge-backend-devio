@@ -18,3 +18,11 @@ export async function finishOrder(req: Request, res: Response) {
 
   return res.status(httpStatus.OK).send(order);
 }
+
+export async function deleteOrder(req: Request, res: Response) {
+  const id = parseInt(req.params.id, 10);
+
+  await ordersService.deleteById(id);
+
+  return res.status(httpStatus.OK);
+}
