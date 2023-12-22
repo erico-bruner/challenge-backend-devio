@@ -4,6 +4,7 @@ import 'express-async-errors';
 import { connectDb, disconnectDB, loadEnv } from './config';
 import { handleApplicationErrors } from './middlewares/error-handling-middleware';
 import { ordersRouter } from './routers/orders-router';
+import { productsRouter } from './routers/products-router';
 
 loadEnv();
 
@@ -13,6 +14,7 @@ app
   .use(cors())
   .use(json())
   .use('/orders', ordersRouter)
+  .use('/products', productsRouter)
   .use(handleApplicationErrors);
 
 export function init(): Promise<Express> {
