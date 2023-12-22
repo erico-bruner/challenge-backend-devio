@@ -44,7 +44,7 @@ model OrderItem {
   comments  String?
   addons    Addon[]
   product   Product @relation(fields: [productId], references: [id])
-  order     Order   @relation(fields: [orderId], references: [id])
+  order     Order   @relation(fields: [orderId], references: [id], onDelete: Cascade)
 }
 
 enum PaymentMethod {
