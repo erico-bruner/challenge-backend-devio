@@ -1,4 +1,5 @@
 import { notFoundError, paymentMismatchError } from '@/errors';
+import { completedOrderError } from '@/errors/completed-order-error';
 import { CreateOrderParams, OrderItem } from '@/protocols';
 import {
   addonsRepository,
@@ -31,7 +32,6 @@ async function validateAddonsExist(orderItems: OrderItem[]) {
 
 async function create(orderData: CreateOrderParams) {
   await validateProductsExist(orderData.orderItems);
-
   await validateAddonsExist(orderData.orderItems);
 
   if (
@@ -42,10 +42,19 @@ async function create(orderData: CreateOrderParams) {
   }
 
   const order = await ordersRepository.create(orderData);
+  return order;
+}
 
+async function finishById(id: number) {
+  const orderExist = await ordersRepository.readById(id);
+  if (!orderExist) throw notFoundError('Order');
+  if (orderExist.completed) throw completedOrderError();
+
+  const order = await ordersRepository.finishById(id);
   return order;
 }
 
 export const ordersService = {
   create,
+  finishById,
 };

@@ -6,58 +6,62 @@ const PRODUCTS = [
     price: 1099,
     description:
       'Hambúrguer 200g, queijo cheedar, tomate, alface, picles, cebola, molho da casa',
-    image_url: 'https://icons8.com.br/icon/erEevcUCwAMR/hamb%C3%BArguer',
+    image_url:
+      'https://static.vecteezy.com/system/resources/previews/021/952/451/original/tasty-hamburger-on-transparent-background-png.png',
   },
   {
     name: 'Hambúrguer Clássico 2',
     price: 1099,
     description:
       'Hambúrguer 200g, queijo cheedar, tomate, alface, picles, cebola, molho da casa',
-    image_url: 'https://icons8.com.br/icon/erEevcUCwAMR/hamb%C3%BArguer',
+    image_url:
+      'https://static.vecteezy.com/system/resources/previews/021/952/451/original/tasty-hamburger-on-transparent-background-png.png',
   },
   {
     name: 'Hambúrguer Clássico 3',
     price: 1099,
     description:
       'Hambúrguer 200g, queijo cheedar, tomate, alface, picles, cebola, molho da casa',
-    image_url: 'https://icons8.com.br/icon/erEevcUCwAMR/hamb%C3%BArguer',
+    image_url:
+      'https://static.vecteezy.com/system/resources/previews/021/952/451/original/tasty-hamburger-on-transparent-background-png.png',
   },
 ];
 
 const CATEGORYS = [
   {
     name: 'Hambúrgueres',
-    image_url: 'https://icons8.com.br/icon/erEevcUCwAMR/hamb%C3%BArguer',
+    image_url: 'https://img.icons8.com/fluency/48/hamburger.png',
   },
   {
     name: 'Acompanhamentos',
-    image_url:
-      'https://icons8.com.br/icon/MSeo0pcLeg0A/emoji-de-batatas-fritas',
+    image_url: 'https://img.icons8.com/emoji/48/french-fries-emoji.png',
   },
   {
     name: 'Bebidas',
-    image_url: 'https://icons8.com.br/icon/xYY1RKEGCKh5/lata-de-refrigerante',
+    image_url: 'https://img.icons8.com/3d-fluency/94/soda-can.png',
   },
   {
     name: 'Sobremesas',
-    image_url: 'https://icons8.com.br/icon/12890/donut',
+    image_url: 'https://img.icons8.com/color/48/doughnut.png',
   },
 ];
 
 const ADDONS = [
   {
     name: 'Bacon',
-    image_url: 'https://icons8.com.br/icon/brTuZKvcHeEJ/bacon',
+    image_url:
+      'https://img.icons8.com/external-febrian-hidayat-flat-febrian-hidayat/64/external-bacon-restaurant-febrian-hidayat-flat-febrian-hidayat.png',
     price: 100,
   },
   {
     name: 'Cheedar',
-    image_url: 'https://icons8.com.br/icon/UMrJhdlewxsb/queijo',
+    image_url:
+      'https://img.icons8.com/external-flat-juicy-fish/60/external-cheese-supermarket-flat-flat-juicy-fish.png',
     price: 100,
   },
   {
     name: 'Molho extra',
-    image_url: 'https://icons8.com.br/icon/PZJmr0qe7myy/vestir',
+    image_url: 'https://img.icons8.com/fluency/48/dressing.png',
     price: 100,
   },
 ];

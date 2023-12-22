@@ -8,6 +8,12 @@ export function handleApplicationErrors(
   res: Response,
   _next: NextFunction, // eslint-disable-line
 ) {
+  if (err.name === 'CompletedOrderError') {
+    return res.status(httpStatus.CONFLICT).send({
+      message: err.message,
+    });
+  }
+
   if (err.name === 'PaymentMismatchError') {
     return res.status(httpStatus.UNPROCESSABLE_ENTITY).send({
       message: err.message,

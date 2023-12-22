@@ -26,6 +26,21 @@ async function create(order: CreateOrderParams) {
   });
 }
 
+async function finishById(id: number) {
+  return prisma.order.update({
+    where: { id },
+    data: {
+      completed: true,
+    },
+  });
+}
+
+async function readById(id: number) {
+  return prisma.order.findUnique({ where: { id } });
+}
+
 export const ordersRepository = {
   create,
+  finishById,
+  readById,
 };

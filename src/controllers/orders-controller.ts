@@ -10,3 +10,11 @@ export async function createOrder(req: Request, res: Response) {
 
   return res.status(httpStatus.CREATED).send(order);
 }
+
+export async function finishOrder(req: Request, res: Response) {
+  const id = parseInt(req.params.id, 10);
+
+  const order = await ordersService.finishById(id);
+
+  return res.status(httpStatus.OK).send(order);
+}

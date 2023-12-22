@@ -25,6 +25,10 @@ export type CreateOrderParams = {
   orderItems: OrderItem[];
 };
 
+export type FinishOrderParams = {
+  id: number;
+};
+
 export type RequestError = {
   status: number;
   data: object | null;

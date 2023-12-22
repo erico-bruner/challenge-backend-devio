@@ -1,5 +1,5 @@
 import Joi from 'joi';
-import { CreateOrderParams } from '@/protocols';
+import { CreateOrderParams, FinishOrderParams } from '@/protocols';
 
 const addonSchema = Joi.object({
   id: Joi.number().required(),
@@ -19,4 +19,8 @@ export const ordersSchema = Joi.object<CreateOrderParams>({
   change_amount: Joi.number().min(0).required(),
   payment_method: Joi.string().required(),
   orderItems: Joi.array().items(orderItemSchema).required(),
+});
+
+export const finishOrderSchema = Joi.object<FinishOrderParams>({
+  id: Joi.number().min(0).required(),
 });
