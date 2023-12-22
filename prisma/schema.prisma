@@ -37,7 +37,8 @@ model Addon {
 }
 
 model OrderItem {
-  orderId   Int     @id
+  id        Int         @id @default(autoincrement())
+  orderId   Int     
   productId Int
   quantity  Int
   comments  String?
