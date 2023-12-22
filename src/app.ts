@@ -3,8 +3,7 @@ import express, { Express, json } from 'express';
 import 'express-async-errors';
 import { connectDb, disconnectDB, loadEnv } from './config';
 import { handleApplicationErrors } from './middlewares/error-handling-middleware';
-import { ordersRouter } from './routers/orders-router';
-import { productsRouter } from './routers/products-router';
+import { categoriesRouter, ordersRouter, productsRouter } from './routers';
 
 loadEnv();
 
@@ -15,6 +14,7 @@ app
   .use(json())
   .use('/orders', ordersRouter)
   .use('/products', productsRouter)
+  .use('/categories', categoriesRouter)
   .use(handleApplicationErrors);
 
 export function init(): Promise<Express> {
