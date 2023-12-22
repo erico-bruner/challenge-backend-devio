@@ -29,6 +29,10 @@ export type FinishOrderParams = {
   id: number;
 };
 
+export type deleteOrderParams = {
+  id: number;
+};
+
 export type RequestError = {
   status: number;
   data: object | null;
