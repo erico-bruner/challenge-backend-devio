@@ -6,6 +6,7 @@
   "scripts": {
     "build": "tsc -p tsconfig.build.json && tsc-alias",
     "start": "npm run migration:run && node dist/server.js",
+    "migration:run": "prisma migrate deploy",
     "dev": "cross-env NODE_ENV=development nodemon --watch 'src/' --exec 'ts-node -r tsconfig-paths/register ./src/server.ts' -e ts",
     "prepare": "husky install",
     "dev:load-envs": "dotenv -e .env.development",
