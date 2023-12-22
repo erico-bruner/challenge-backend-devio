@@ -63,33 +63,39 @@ const ADDONS = [
 ];
 
 async function main() {
-  CATEGORYS.map(async category => {
-    await prisma.category.upsert({
-      where: { name: category.name },
-      update: category,
-      create: category,
-    });
-  });
+  await Promise.all(
+    CATEGORYS.map(async category => {
+      await prisma.category.upsert({
+        where: { name: category.name },
+        update: category,
+        create: category,
+      });
+    }),
+  );
 
-  ADDONS.map(async addon => {
-    await prisma.addon.upsert({
-      where: { name: addon.name },
-      update: addon,
-      create: addon,
-    });
-  });
+  await Promise.all(
+    ADDONS.map(async addon => {
+      await prisma.addon.upsert({
+        where: { name: addon.name },
+        update: addon,
+        create: addon,
+      });
+    }),
+  );
 
   const burgersCategory = await prisma.category.findFirst({
     where: { name: 'Hambúrgueres' },
   });
 
-  PRODUCTS.map(async product => {
-    await prisma.product.upsert({
-      where: { name: product.name },
-      update: product,
-      create: { ...product, categoryId: burgersCategory.id },
-    });
-  });
+  await Promise.all(
+    PRODUCTS.map(async product => {
+      await prisma.product.upsert({
+        where: { name: product.name },
+        update: product,
+        create: { ...product, categoryId: burgersCategory.id },
+      });
+    }),
+  );
 }
 
 main()
